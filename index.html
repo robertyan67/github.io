@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессиональное резюме | Бизнес-аналитик и 1С-эксперт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --accent: #4FC3F7;
+            --bg: #F8F9FA;
+            --text: #2D3748;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #3AA8E0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Навигация */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 36, 99, 0.9);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        nav.scrolled {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            color: var(--light);
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Обо мне */
+        #about {
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-img {
+            flex: 0 0 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Компетенции */
+        #competences {
+            background-color: var(--bg);
+        }
+        
+        .competences-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .competence-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .competence-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .competence-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .competence-card h3 .material-icons {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        .competence-card ul {
+            list-style-position: inside;
+        }
+        
+        .competence-card li {
+            margin-bottom: 8px;
+        }
+        
+        /* Навыки */
+        #skills {
+            background-color: var(--light);
+        }
+        
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Сертификаты */
+        #certificates {
+            background-color: var(--bg);
+        }
+        
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .certificate-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.05);
+        }
+        
+        .certificate-info {
+            padding: 20px;
+        }
+        
+        .certificate-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .certificate-info p {
+            color: #666;
+        }
+        
+        /* Резюме */
+        #resume {
+            background-color: var(--light);
+        }
+        
+        .resume-section {
+            margin-bottom: 50px;
+        }
+        
+        .resume-section h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .resume-section h3 .material-icons {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        /* Опыт работы */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10px;
+            height: 100%;
+            width: 2px;
+            background-color: var(--accent);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 2px solid var(--accent);
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 0;
+        }
+        
+        .timeline-date-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+        }
+        
+        .timeline-position {
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        .timeline-date {
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .timeline-company {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .timeline-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 20px;
+        }
+        
+        .timeline-item.active .timeline-details {
+            max-height: 1000px;
+        }
+        
+        .timeline-content ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+        }
+        
+        .achievement {
+            background-color: rgba(79, 195, 247, 0.1);
+            padding: 10px 15px;
+            border-left: 3px solid var(--accent);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .achievement .material-icons {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        /* Образование */
+        .education-item {
+            background-color: var(--bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .education-item h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        /* Курсы */
+        .courses-item {
+            background-color: var(--bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .courses-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .courses-title {
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .courses-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .courses-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 20px;
+        }
+        
+        .courses-item.active .courses-details {
+            max-height: 200px;
+            margin-top: 15px;
+        }
+        
+        .courses-organization {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .courses-specialty {
+            margin-bottom: 5px;
+        }
+        
+        /* Проекты */
+        #projects {
+            background-color: var(--bg);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            height: 350px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+        
+        .project-info::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to top, var(--light), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-card:hover .project-info::before {
+            opacity: 1;
+        }
+        
+        .project-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+        }
+        
+        .project-details {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: var(--light);
+            transition: bottom 0.3s;
+        }
+        
+        .project-card:hover .project-details {
+            bottom: 0;
+        }
+        
+        /* Контакты */
+        #contact {
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-method .material-icons {
+            color: var(--accent);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--light);
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.2);
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .nav-links li {
+                margin-left: 15px;
+            }
+            
+            .competences-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                margin-top: 30px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-date-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-date {
+                margin-top: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Имя Фамилия</a>
+            <ul class="nav-links">
+                <li><a href="#about">О себе</a></li>
+                <li><a href="#competences">Компетенции</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#certificates">Сертификаты</a></li>
+                <li><a href="#resume">Резюме</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Шапка -->
+    <header>
+        <div class="hero-content animate">
+            <h1>Имя Фамилия</h1>
+            <p>Бизнес-аналитик и эксперт по 1С:ERP с 15+ летним опытом</p>
+            <a href="#contact" class="btn">Связаться со мной</a>
+        </div>
+    </header>
+
+    <!-- О себе -->
+    <section id="about">
+        <div class="container">
+            <h2>О себе</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Профессиональный бизнес-аналитик с глубокой экспертизой в моделировании бизнес-процессов и внедрении ERP-систем на базе 1С. Специализируюсь на оптимизации операционных процессов в промышленности и торговле.</p>
+                    <p>Мой подход сочетает системное мышление, внимание к деталям и ориентацию на бизнес-результат. Умею находить баланс между техническими требованиями и потребностями бизнеса.</p>
+                    <p><strong>Членство в организациях:</strong> ABPMP Russian Chapter, Ассоциация 1С-разработчиков</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Фото">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Компетенции -->
+    <section id="competences">
+        <div class="container">
+            <h2>Компетенции</h2>
+            <div class="competences-container">
+                <div class="competence-card">
+                    <h3><span class="material-icons">analytics</span>Бизнес-анализ</h3>
+                    <ul>
+                        <li>Проведение комплексных обследований бизнеса</li>
+                        <li>Моделирование процессов в нотациях IDEF0, BPMN</li>
+                        <li>Разработка регламентов и матриц ответственности</li>
+                        <li>Оптимизация бизнес-процессов</li>
+                    </ul>
+                </div>
+                
+                <div class="competence-card">
+                    <h3><span class="material-icons">settings</span>1С:ERP</h3>
+                    <ul>
+                        <li>Функциональный анализ и проектирование</li>
+                        <li>Разработка технических заданий</li>
+                        <li>Сравнительный анализ конфигураций</li>
+                        <li>Внедрение полного цикла</li>
+                    </ul>
+                </div>
+                
+                <div class="competence-card">
+                    <h3><span class="material-icons">groups</span>Управление проектами</h3>
+                    <ul>
+                        <li>Инициация и планирование проектов</li>
+                        <li>Управление по методологии PMBOK</li>
+                        <li>Гибкие методологии (Scrum, Agile)</li>
+                        <li>Управление командой и стейкхолдерами</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills">
+        <div class="container">
+            <h2>Навыки</h2>
+            <div class="tags-cloud">
+                <span class="tag">Аналитическое мышление</span>
+                <span class="tag">Бизнес-анализ</span>
+                <span class="tag">Разработка ТЗ</span>
+                <span class="tag">BPMN</span>
+                <span class="tag">IDEF0</span>
+                <span class="tag">1C:ERP</span>
+                <span class="tag">Draw.io</span>
+                <span class="tag">PMBOK</span>
+                <span class="tag">Waterfall</span>
+                <span class="tag">Agile</span>
+                <span class="tag">Scrum</span>
+                <span class="tag">Miro</span>
+                <span class="tag">Оптимизация процессов</span>
+                <span class="tag">Системный подход</span>
+                <span class="tag">Стратегическое мышление</span>
+                <span class="tag">Управление командой</span>
+                <span class="tag">Финансовый анализ</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects">
+        <div class="container">
+            <h2>Проекты</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Проект 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Оптимизация процессов продаж</h3>
+                        <p>Энергетический холдинг | 2023</p>
+                        <p>Сокращение времени на подготовку бюджета на 20%</p>
+                    </div>
+                    <div class="project-details">
+                        <p><strong>Задачи:</strong> Анализ текущих процессов, выявление узких мест, разработка новых регламентов</p>
+                        <p><strong>Технологии:</strong> BPMN, 1С:ERP, Excel</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Проект 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Внедрение 1С:ERP</h3>
+                        <p>Промышленное предприятие | 2024</p>
+                        <p>Полный цикл автоматизации учета</p>
+                    </div>
+                    <div class="project-details">
+                        <p><strong>Задачи:</strong> Обследование, разработка ТЗ, внедрение, обучение</p>
+                        <p><strong>Технологии:</strong> 1С:ERP, IDEF0, Draw.io</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Проект 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>Реинжиниринг логистики</h3>
+                        <p>Торговая компания | 2022</p>
+                        <p>Сокращение затрат на 15%</p>
+                    </div>
+                    <div class="project-details">
+                        <p><strong>Задачи:</strong> Анализ цепочки поставок, оптимизация маршрутов</p>
+                        <p><strong>Технологии:</strong> Симуляционное моделирование, BPMN</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сертификаты -->
+    <section id="certificates">
+        <div class="container">
+            <h2>Сертификаты</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/300x200?text=1C:ERP+Сертификат" alt="1С:ERP Сертификат">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>1С:Профессионал по ERP</h3>
+                        <p>2024 год</p>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/300x200?text=1C:УХ+Сертификат" alt="1С:УХ Сертификат">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>1С:Специалист-консультант по 1С УТ</h3>
+                        <p>2025 год</p>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/300x200?text=BPMN+Сертификат" alt="BPMN Сертификат">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Сертификация по BPMN 2.0</h3>
+                        <p>2023 год</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Резюме -->
+    <section id="resume">
+        <div class="container">
+            <h2>Резюме</h2>
+            
+            <!-- Опыт работы -->
+            <div class="resume-section">
+                <h3><span class="material-icons">work</span>Опыт работы</h3>
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header" onclick="toggleAccordion(this.parentElement)">
+                            <div class="timeline-date-container">
+                                <span class="timeline-position">Аналитик 1С проектного отдела</span>
+                                <span class="timeline-date">06.2024 — 05.2025</span>
+                            </div>
+                            <span class="material-icons toggle-icon">expand_more</span>
+                        </div>
+                        <div class="timeline-details">
+                            <p class="timeline-company">Первый БИТ, Санкт-Петербург</p>
+                            <ul>
+                                <li>Проекты полного цикла автоматизации на 1С:ERP</li>
+                                <li>Обследования бизнеса, модели процессов, ТЗ для программистов</li>
+                                <li>Сравнительный анализ конфигураций</li>
+                            </ul>
+                            <div class="achievement">
+                                <span class="material-icons">military_tech</span>
+                                <p>За 8 месяцев прошел путь от начинающего аналитика до функционального архитектора</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header" onclick="toggleAccordion(this.parentElement)">
+                            <div class="timeline-date-container">
+                                <span class="timeline-position">Бизнес-аналитик</span>
+                                <span class="timeline-date">03.2009 — 03.2024</span>
+                            </div>
+                            <span class="material-icons toggle-icon">expand_more</span>
+                        </div>
+                        <div class="timeline-details">
+                            <p class="timeline-company">Проектная деятельность</p>
+                            <ul>
+                                <li>Аудит и оптимизация бизнес-процессов</li>
+                                <li>Реинжиниринг и внедрение изменений</li>
+                            </ul>
+                            <div class="achievement">
+                                <span class="material-icons">military_tech</span>
+                                <p>Реализовал проекты с измеримым экономическим эффектом</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header" onclick="toggleAccordion(this.parentElement)">
+                            <div class="timeline-date-container">
+                                <span class="timeline-position">Руководитель центра управления проектами</span>
+                                <span class="timeline-date">10.2006 — 09.2008</span>
+                            </div>
+                            <span class="material-icons toggle-icon">expand_more</span>
+                        </div>
+                        <div class="timeline-details">
+                            <p class="timeline-company">ЕвразХолдинг, Москва</p>
+                            <ul>
+                                <li>Формирование методологии управления проектами</li>
+                                <li>Разработка концепции системы управления проектами</li>
+                            </ul>
+                            <div class="achievement">
+                                <span class="material-icons">military_tech</span>
+                                <p>Разработал и внедрил корпоративную систему управления проектами за 6 месяцев</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Образование -->
+            <div class="resume-section">
+                <h3><span class="material-icons">school</span>Образование</h3>
+                <div class="education-item">
+                    <h4>Казанский федеральный университет</h4>
+                    <p>Радиофизика, диплом | 1992</p>
+                </div>
+            </div>
+            
+            <!-- Курсы -->
+            <div class="resume-section">
+                <h3><span class="material-icons">menu_book</span>Курсы</h3>
+                
+                <div class="courses-item" onclick="toggleAccordion(this)">
+                    <div class="courses-header">
+                        <div>
+                            <span class="courses-title">Применение бизнес-приложений 1С:ERP</span>
+                            <span class="courses-date">2024</span>
+                        </div>
+                        <span class="material-icons toggle-icon">expand_more</span>
+                    </div>
+                    <div class="courses-details">
+                        <p class="courses-organization">Учебный центр №1 фирмы "1С"</p>
+                        <p class="courses-specialty">Консультант-аналитик 1С</p>
+                        <p>Диплом о профессиональной переподготовке</p>
+                    </div>
+                </div>
+                
+                <div class="courses-item" onclick="toggleAccordion(this)">
+                    <div class="courses-header">
+                        <div>
+                            <span class="courses-title">Настройка отчетов в 1C:ERP</span>
+                            <span class="courses-date">2024</span>
+                        </div>
+                        <span class="material-icons toggle-icon">expand_more</span>
+                    </div>
+                    <div class="courses-details">
+                        <p class="courses-organization">Учебный центр №1 фирмы "1С"</p>
+                        <p class="courses-specialty">Консультант-аналитик 1С</p>
+                        <p>Удостоверение о повышении квалификации</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Свяжитесь со мной</h3>
+                    
+                    <div class="contact-method">
+                        <span class="material-icons">email</span>
+                        <span>email@example.com</span>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <span class="material-icons">phone</span>
+                        <span>+7 (XXX) XXX-XX-XX</span>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <span class="material-icons">telegram</span>
+                        <span>@username</span>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <span class="material-icons">whatsapp</span>
+                        <span>+7 (XXX) XXX-XX-XX</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" target="_blank">
+                            <span class="material-icons">telegram</span>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <span class="material-icons">whatsapp</span>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <span class="material-icons">linkedin</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="email" placeholder="Ваш email" required>
+                        <textarea placeholder="Ваше сообщение" required></textarea>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" id="request-resume" name="request-resume">
+                            <label for="request-resume">Запросить полное резюме (PDF)</label>
+                        </div>
+                        
+                        <button type="submit" class="btn">Отправить сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#about">О себе</a></li>
+                <li><a href="#competences">Компетенции</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#certificates">Сертификаты</a></li>
+                <li><a href="#resume">Резюме</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <p>&copy; Имя Фамилия, 2024. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Фиксированная навигация при скролле
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Управление аккордеонами
+        function toggleAccordion(element) {
+            element.classList.toggle('active');
+            
+            // Закрытие других элементов в той же секции
+            const container = element.closest('.resume-section');
+            if (container) {
+                const items = container.querySelectorAll('.timeline-item.active, .courses-item.active');
+                items.forEach(item => {
+                    if (item !== element) {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
